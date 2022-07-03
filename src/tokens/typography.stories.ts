@@ -1,9 +1,8 @@
-import { Meta, Story } from "@storybook/html";
-import typography from "./_typography.scss";
-import type { ClassNames } from "./_typography.scss";
+import {Meta, Story } from "@storybook/html";
+import typography, { type ClassNames } from "./_typography.scss";
 
 export default {
-  title: "Tokens/Typography",
+  title: "Tokens/Typography"
 } as Meta;
 
 export interface TextProps {
@@ -18,7 +17,7 @@ const createText = ({ fontFamily, fontSize, text, isBold }: TextProps) => {
   p.innerText = `${fontSize} / ${isBold ? "bold" : "normal"} / ${text}`;
   p.style.fontFamily = fontFamily;
   p.style.fontSize = fontSize;
-  if (isBold) {
+  if(isBold) {
     p.style.fontWeight = "bold";
   }
   return p;
@@ -27,22 +26,16 @@ const createText = ({ fontFamily, fontSize, text, isBold }: TextProps) => {
 const createTexts = (fontFamily: string, text: string) => {
   const div = document.createElement("div");
 
-  const fontSizes = Object.keys(typography).filter((key) =>
-    key.startsWith("font-size-")
-  ) as ClassNames[];
-  fontSizes.forEach((key) => {
-    div.appendChild(
-      createText({ fontFamily, fontSize: typography[key], text, isBold: false })
-    );
+  const fontSizes = Object.keys(typography).filter(key=>key.startsWith("font-size-")) as ClassNames[];
+  fontSizes.forEach(key => {
+    div.appendChild(createText({fontFamily, fontSize: typography[key], text, isBold:false }));
   });
-  fontSizes.forEach((key) => {
-    div.appendChild(
-      createText({ fontFamily, fontSize: typography[key], text, isBold: true })
-    );
+  fontSizes.forEach(key => {
+    div.appendChild(createText({fontFamily, fontSize: typography[key], text, isBold:true }));
   });
 
   return div;
-};
+}
 
 export const Japanese: Story = () => {
   return createTexts(typography["font-family-jp"], "abcあいう012");

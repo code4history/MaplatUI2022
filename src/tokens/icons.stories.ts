@@ -1,9 +1,8 @@
-import { Meta, Story } from "@storybook/html";
-import icons from "../icons/maplat-icons.scss";
-import type { ClassNames } from "../icons/maplat-icons.scss";
+import {Meta, Story } from "@storybook/html";
+import icons, { type ClassNames } from "../icons/maplat-icons.scss";
 
 export default {
-  title: "Tokens/Icons",
+  title: "Tokens/Icons"
 } as Meta;
 
 const createIcon = (iconName: ClassNames) => {
@@ -13,7 +12,7 @@ const createIcon = (iconName: ClassNames) => {
   wrapper.style.width = "300px";
 
   const span = document.createElement("span");
-  span.innerText = iconName;
+  span.innerText = iconName
   span.style.width = "200px";
   wrapper.appendChild(span);
 
@@ -22,7 +21,7 @@ const createIcon = (iconName: ClassNames) => {
   wrapper2.style.width = "100px";
   wrapper2.style.fontSize = "80px";
   const i = document.createElement("i");
-  i.classList.add(icons[iconName]);
+  i.classList.add(icons[iconName])
 
   wrapper2.appendChild(i);
   wrapper.appendChild(wrapper2);
@@ -35,7 +34,8 @@ export const Icons: Story = () => {
   wrapper.style.flexDirection = "column";
   wrapper.style.gap = "10px";
 
-  (Object.keys(icons) as ClassNames[]).forEach((iconName) => {
+
+  (Object.keys(icons) as ClassNames[]).forEach(iconName => {
     wrapper.appendChild(createIcon(iconName));
   });
 

@@ -1,79 +1,65 @@
 @use "../../_borders.scss";
 @use "../../_colors.scss";
-@use "../../_elevations.scss";
 
-@mixin button {
+%button {
   padding: 10px 16px;
   cursor: pointer;
 }
 
-@mixin rounded-full {
-  @include button;
-  @include borders.border;
-  @include borders.rounded-full;
-  @include elevations.on-map-button;
-}
-
 .button {
-  @include button;
-  @include borders.border;
-  @include borders.rounded;
-  @include colors.background-white-with-hover;
+  @extend %button;
+  @extend %border;
+  @extend %rounded;
+  @extend %background-white-with-hover;
 }
 
 .rounded-full-button {
-  @include rounded-full;
-  @include colors.background-white-with-hover;
+  @extend %button;
+  @extend %border;
+  @extend %rounded-full;
+  @extend %background-white-with-hover;
 }
 
 .rounded-full-button-black {
-  @include rounded-full;
-  @include colors.background-black-with-hover;
+  @extend .rounded-full-button;
+  @extend %background-black-with-hover;
 }
 
 .circle-button {
-  @include rounded-full;
-  @include colors.background-white-with-hover;
+  @extend %button;
+  @extend %border;
+  @extend %rounded-full;
+  @extend %background-white-with-hover;
 
   width: 48px;
   height: 48px;
   padding: 16px;
 
-  &:hover,
-  &:active {
-    @include borders.border;
+  &:hover, &:active {
+    @extend %border;
   }
 }
 
 .circle-button-gray {
-  @include rounded-full;
-  @include colors.background-gray-with-hover;
-
-  width: 48px;
-  height: 48px;
-  padding: 16px;
-
-  &:hover,
-  &:active {
-    @include borders.border;
-  }
+  @extend .circle-button;
+  @extend %background-gray-with-hover;
+  border-color: transparent;
 }
 
 .circle-button-md {
-  @include button;
-  @include borders.rounded-full;
-  @include colors.shadow;
-  @include elevations.on-map-button;
+  @extend %button;
+  @extend %rounded-full;
+  @extend %shadow;
   width: 64px;
   height: 64px;
   padding: 24px;
 }
 
 .square-button {
-  @include button;
-  @include borders.border;
+  @extend %button;
+  @extend %border;
   @include borders.rounded-md;
-  @include colors.background-white-with-hover;
+  @extend %background-white-with-hover;
 
   width: 29px;
   height: 29px;
@@ -85,4 +71,8 @@
 
   display: flex;
   flex-direction: column;
+
+  button {
+    @extend .square-button;
+  }
 }

@@ -7,7 +7,9 @@
     @media screen and (min-width: #{meta.inspect(map.get(breakpoints.$breakpoints, $breakpoint))}) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @error "The specified breakpoint is undefined. " + "breakpoints: [#{map.keys(breakpoints.$breakpoints)}]";
   }
 }

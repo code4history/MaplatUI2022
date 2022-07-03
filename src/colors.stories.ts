@@ -1,10 +1,9 @@
-import { Meta, Story } from "@storybook/html";
-import colors from "./_colors.scss";
-import type { ClassNames } from "./_colors.scss";
+import {Meta, Story } from "@storybook/html";
+import colors, { type ClassNames } from "./_colors.scss";
 import tokenColors from "./tokens/_colors.scss";
 
 export default {
-  title: "Aliases/Colors",
+  title: "Aliases/Colors"
 } as Meta;
 
 interface ColorBoxProps {
@@ -34,10 +33,12 @@ const createColorBoxs = (colors: Array<ColorBoxProps>) => {
 export const Colors: Story = () => {
   return createColorBoxs(
     (Object.keys(colors) as unknown as Array<ClassNames>)
-      .filter((color) => !(color in tokenColors))
-      .map((name) => ({
+    .filter(color=> !(color in tokenColors))
+    .map(
+      (name) => ({
         name,
         color: colors[name],
-      }))
+      })
+    )
   );
 };
