@@ -24,8 +24,8 @@ export const layerSwitcher = (
   layerSwitcherToggle?.addEventListener("click", () => {
     offcanvas("." + style["offcanvas"]);
     const icon = layerSwitcherToggle.querySelector("i");
-    icon?.classList.toggle(style["i-down-36"]);
-    icon?.classList.toggle(style["i-up-36"]);
+    icon?.classList.toggle(style["i-down-24"]);
+    icon?.classList.toggle(style["i-up-24"]);
   });
 
   rangeEl.addEventListener(

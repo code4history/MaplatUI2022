@@ -72,7 +72,7 @@ export const BottomDrawer: Story = () => {
     </dl>
 
     <button class="${style["drawer-close"]}">
-      <i class="${style["i-close-36"]}"></i>閉じる
+      <i class="${style["i-close-24"]}"></i>閉じる
     </button>
   `;
 

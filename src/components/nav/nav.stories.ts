@@ -16,8 +16,8 @@ export const Nav: Story = () => {
       和州奈良之図 (1844年)
     </div>
     <div class="${style["nav-icons"]}">
-      <i class="${style["i-share-36"]}"></i>
-      <i class="${style["i-download-36"]}"></i>
+      <i class="${style["i-share-24"]}"></i>
+      <i class="${style["i-download-24"]}"></i>
       <i class="${style["i-info-24"]}"></i>
     </div>
   `;
