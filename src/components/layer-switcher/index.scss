@@ -36,8 +36,7 @@ $-button-width: 40px;
 }
 
 .offcanvas-bottom-hidden {
-  $tab-button-height: 72px;
-  transform: translateY(calc(100% - $tab-button-height));
+  transform: translateY(calc(100% - var(--maplat-layer-switcher-tab-height)));
 }
 
 .tab-container {
@@ -47,52 +46,103 @@ $-button-width: 40px;
   flex-direction: column;
 
   .tabs {
+    width: 100%;
     display: flex;
+    flex-direction: column;
+
+    div {
+      width: 100%;
+      display: flex;
+
+      &:nth-of-type(2) {
+        color: #FAFAFA;
+        font-size: 22px;
+        background: #333333;
+        height: 78px;
+        justify-content: center;
+        align-items: center;
+        padding: 0 54px;
+
+        @include breakpoints.responsive(md) {
+          margin-left: auto;
+        }
+      }
+    }
+
+    @include breakpoints.responsive(md) {
+      flex-direction: row;
+
+      div {
+        width: initial;
+      }
+    }
 
     .tab {
-      $margin: 12px;
+      $margin: 3px;
 
       @include colors.background-black;
       @include borders.rounded-md-top;
       opacity: 0.64;
-      padding: 24px 48px;
-      margin: 0 calc($margin / 2);
+
+      padding: 18px 0;
+      margin: 0 $margin;
+      white-space: nowrap;
 
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      flex-grow: 1;
 
       &:first-child {
         margin-left: 2 * $margin;
       }
 
+      @include breakpoints.responsive(md) {
+        padding: 24px 48px;
+        $margin: 12px;
+        margin: 0 $margin;
+        flex-grow: initial;
+
+        &:first-child {
+          margin-left: 2 * $margin;
+        }
+      }
+
       &-active {
         opacity: 1;
+        flex-grow: 2;
+
+        @include breakpoints.responsive(md) {
+          flex-grow: initial;
+        }
       }
     }
 
     .tab2 {
-      $margin: 12px;
-
       @include colors.background-black;
       @include borders.rounded-md-top;
       opacity: 0.64;
-      padding: 24px 48px;
-      margin: 0 calc($margin / 2);
+
+      width: 54px;
+      padding: 18px 0;
+
+      $margin: 3px;
+      margin: 0 $margin;
+      margin-right: 2 * $margin;
+
+      @include breakpoints.responsive(md) {
+        padding: 24px 48px;
+
+        $margin: 12px;
+        margin: 0 $margin;
+        margin-right: 2 * $margin;
+      }
 
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-
-      &:first-child {
-        margin-left: 2 * $margin;
-      }
-
-      &-active {
-        opacity: 1;
-      }
     }
   }
 
